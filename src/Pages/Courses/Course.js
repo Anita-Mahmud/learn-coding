@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Nav from '../shared/Header/Nav';
 
 const Course = () => {
@@ -22,7 +22,10 @@ const Course = () => {
     <h2 className="card-title text-5xl font-semibold mb-4">{name}</h2>
     <p>{details}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Get Premium Access</button>
+      <button className="btn btn-primary">
+      <Link to={`/course/premium/${id}`}>
+        Get Premium Access</Link>
+        </button>
     </div>
   </div>
 </div>

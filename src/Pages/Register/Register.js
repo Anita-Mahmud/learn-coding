@@ -1,8 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const handleSubmit =()=>{}
+    const { createUser } =useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const url = form.url.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                navigate(from, {replace: true});
+                form.reset();
+            })
+            .catch(e => {
+                console.error(e);
+            });
+    }
     return (
         <div>
         <div className="hero min-h-screen bg-base-200">
@@ -38,7 +60,7 @@ const Register = () => {
       <input type="password" name="password" placeholder="password" className="input input-bordered" />
     </div>
     <div className="form-control mt-6">
-      <button className="btn btn-primary">Register</button>
+      <button className="btn btn-primary" type="submit">Register</button>
     </div>
   </div>
 </form>
