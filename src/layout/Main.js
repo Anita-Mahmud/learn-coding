@@ -1,11 +1,24 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Nav from '../Pages/shared/Header/Nav';
+import Sidebar from '../Pages/shared/Sidebar/Sidebar';
 
 const Main = () => {
+
     return (
-        <div className='px-20 py-4'>
+        <div className=''>
             <Nav></Nav>
-        </div>
+            <img src='./images/banner.jpg' className='w-screen h-96'></img>
+            <div class="grid grid-cols-4 gap-4 px-20 py-4">
+            <div className='col-span-3'>
+               <Outlet></Outlet>
+            </div>
+            
+            <div>
+                <Sidebar></Sidebar>
+            </div>
+            </div> </div>
+        
     );
 };
 
