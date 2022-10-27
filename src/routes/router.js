@@ -3,6 +3,8 @@ import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Course from "../Pages/Courses/Course";
 import Courses from "../Pages/Courses/Courses";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 import Error from "../Pages/shared/Error/Error";
 
 export const router = createBrowserRouter([
@@ -29,6 +31,14 @@ export const router = createBrowserRouter([
         
     ],
    
+ },
+ {
+    path:'/login',
+    element:<Login></Login>
+ },
+ {
+    path:'/register',
+    element:<Register></Register>
  },
  {
     path:'/course/:id',
