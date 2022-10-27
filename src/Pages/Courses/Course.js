@@ -22,7 +22,7 @@ const Course = () => {
     <h2 className="card-title text-5xl font-semibold mb-4">{name}</h2>
     <p>{details}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+      <button className="btn btn-primary">Get Premium Access</button>
     </div>
   </div>
 </div>
