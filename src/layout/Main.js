@@ -9,14 +9,15 @@ const Main = () => {
         <div className=''>
             <Nav></Nav>
             <img src='./images/banner.jpg' className='w-screen h-96'></img>
-            <div class="grid grid-cols-4 gap-4 px-20 py-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 px-20 py-4">
+            <div>
+                <Sidebar></Sidebar>
+            </div>
             <div className='col-span-3'>
                <Outlet></Outlet>
             </div>
             
-            <div>
-                <Sidebar></Sidebar>
-            </div>
+            
             </div> </div>
         
     );
