@@ -3,15 +3,16 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const { createUser } =useContext(AuthContext);
+    const { createUser ,updateUserProfile} =useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
-        const url = form.url.value;
+        const displayName
+        = form.name.value;
+        const photoURL = form.url.value;
         const email = form.email.value;
         const password = form.password.value;
 
@@ -20,10 +21,21 @@ const Register = () => {
                 const user = result.user;
                 navigate(from, {replace: true});
                 form.reset();
+                handleUpdateUserProfile(displayName, photoURL);
             })
             .catch(e => {
                 console.error(e);
             });
+    }
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
     }
     return (
         <div>
