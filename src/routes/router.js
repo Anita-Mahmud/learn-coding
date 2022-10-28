@@ -1,3 +1,4 @@
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
@@ -6,6 +7,7 @@ import Course from "../Pages/Courses/Course";
 import Courses from "../Pages/Courses/Courses";
 import FAQ from "../Pages/FAQ/FAQ";
 import Login from "../Pages/Login/Login";
+import Pdf from "../Pages/PDF/Pdf";
 import Register from "../Pages/Register/Register";
 import Error from "../Pages/shared/Error/Error";
 import PrivateRoute from "./PrivateRoute";
@@ -52,6 +54,12 @@ export const router = createBrowserRouter([
     element:<Course></Course>,
     loader: ({params}) => fetch(`https://code-server-eosin.vercel.app/course/${params.id}`)
  } ,
+//  {
+//    path:'/details/:id',
+//    element:<PDFDownloadLink document={<Pdf/>} fileName="FORM"></PDFDownloadLink>,
+//    loader: ({params}) => fetch(`https://code-server-eosin.vercel.app/course/${params.id}`)
+// } ,
+ 
  {
     path:'/course/premium/:id',
     element:<PrivateRoute><Check></Check></PrivateRoute>,
