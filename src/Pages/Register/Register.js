@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const { createUser ,updateUserProfile} =useContext(AuthContext);
+  const [error,setError] = useState('');
+    const { createUser,updateUserProfile } =useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const displayName
-        = form.name.value;
+        const displayName= form.name.value;
         const photoURL = form.url.value;
         const email = form.email.value;
         const password = form.password.value;
@@ -20,23 +20,25 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 navigate(from, {replace: true});
+                setError('');
+                handleUserProfile(displayName,photoURL);
                 form.reset();
-                handleUpdateUserProfile(displayName, photoURL);
+               
             })
-            .catch(e => {
-                console.error(e);
-            });
-    }
-    const handleUpdateUserProfile = (name, photoURL) => {
-        const profile = {
-            displayName: name,
-            photoURL: photoURL
-        }
+            .catch(error => {
+              console.error(error);
+              setError(error.message);
+             
+          });
 
-        updateUserProfile(profile)
-            .then(() => { })
-            .catch(error => console.error(error));
+          const handleUserProfile = (displayName,photoURL)=>{
+            const profile = {displayName,photoURL}
+            updateUserProfile (profile)
+            .then(()=>{})
+            .catch(error=>console.error(error))
+          }
     }
+    
     return (
         <div>
         <div className="hero min-h-screen bg-base-200">
@@ -63,14 +65,15 @@ const Register = () => {
       <label className="label">
         <span className="label-text">Email</span>
       </label>
-      <input type="email" name="email"placeholder="email" className="input input-bordered" />
+      <input type="email" name="email"placeholder="email" className="input input-bordered" required />
     </div>
     <div className="form-control">
       <label className="label">
         <span className="label-text">Password</span>
       </label>
-      <input type="password" name="password" placeholder="password" className="input input-bordered" />
+      <input type="password" name="password" placeholder="password" className="input input-bordered" required/>
     </div>
+    <div className='text-error'>{error}</div>
     <div className="form-control mt-6">
       <button className="btn btn-primary" type="submit">Register</button>
     </div>

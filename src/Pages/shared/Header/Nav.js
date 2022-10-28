@@ -16,7 +16,7 @@ const Nav = () => {
     return (
 
         <div>
-          <div className="navbar bg-base-100 px-20 py-10">
+          <div className="navbar  px-20 py-10">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,7 +51,7 @@ const Nav = () => {
   <div className="navbar-end">
    {user?.uid?
    <>
-   <img src={user?.photoURL}></img>
+   <img src={user?.photoURL} className="rounded-full w-20 mr-2"alt="profile" title={user?.displayName}></img>
    <button className="btn btn-active btn-ghost" onClick={handleLogOut}>
    Logout
    </button>

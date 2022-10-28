@@ -1,9 +1,10 @@
-import React,{ useContext } from 'react';
+import React,{ useContext, useState } from 'react';
 import { Link, useNavigate,useLocation } from 'react-router-dom';
 import { GoogleAuthProvider,GithubAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
+  const [error,setError] = useState('');
     const { providerGoogleLogin,providerGitLogin ,signIn, setLoading} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -17,7 +18,11 @@ const Login = () => {
                 const user = result.user;
                 navigate(from, {replace: true});
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+              console.error(error);
+              setError(error.message);
+             
+          })
     }
     // git signin
     const handleGitSignIn=()=>{
@@ -26,7 +31,11 @@ const Login = () => {
         const user = result.user;
         navigate(from, {replace: true});
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error);
+      setError(error.message);
+     
+  })
 
     }
     //email pass
@@ -40,13 +49,15 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 navigate(from, {replace: true});
+                setError('')
                 form.reset();
                 
                 
                 
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+                setError(error.message);
                
             })
             .finally(() => {
@@ -78,6 +89,7 @@ const Login = () => {
           </label>
           <input type="password" name="password" placeholder="password" className="input input-bordered" />
         </div>
+        <div className="text-error">{error}</div>
         <div className="form-control mt-6">
           <button className="btn btn-primary" type='submit'>Login</button>
         </div>

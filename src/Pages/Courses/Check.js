@@ -8,10 +8,10 @@ const Check = () => {
     return (
         <div>
             <Nav></Nav>
-           <h1 className='text-center text-5xl  pt-10'>Thank You  
-           <span className="font-bold  text-pink-400"> {user.displayName} </span> 
+           <h1 className='text-center text-2xl md:text-5xl  pt-10'>Thank You  
+           <span className=" font-semibold md:font-bold  text-pink-400 text-2xl md:text-5xl"> {user.displayName} </span> 
            for enrolling in {premium.name}</h1>
-           <div className="card  shadow-xl w-96  md:w-full shadow-blue-500/50  ">
+           <div className="card  shadow-xl w-96 mx-auto md:w-full shadow-blue-500/50  ">
   <figure><img src={premium.image} 
   className="w-96 py-10 px-18"/></figure>
   <div className="card-body text-2xl px-20">
