@@ -6,8 +6,7 @@ import logo from '../../../images/logo.jpg';
 const Nav = () => {
  
   const { user, logOut } = useContext(AuthContext);
-  console.log(user)
- 
+ // logout
   const handleLogOut = () => {
     logOut()
         .then(() => { })
@@ -48,6 +47,7 @@ const Nav = () => {
     </ul>
 
   </div>
+  {/* profile set up*/}
   <div className="navbar-end">
    {user?.uid?
    <>

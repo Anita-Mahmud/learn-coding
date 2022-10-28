@@ -1,8 +1,8 @@
 import React from 'react';
 const Blog = () => {
     return (
-        <div>
-           <div className="hero m-8" style={{ backgroundImage: `url("187161.webp")` }}>
+        <div className='px-20'>
+           <div className="hero my-8" style={{ backgroundImage: `url("187161.webp")` }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md text-white">
@@ -47,7 +47,7 @@ const Blog = () => {
       <h1 className="mb-5 text-5xl font-bold text-center">What is Node? How does Node work?</h1>
       <p className="mb-5 text-xl">Node. js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser. Ryan Dahl developed it in 2009, and its latest iteration, version 15.14, was released in April 2021. Developers use Node.
       </p>
-      <p mb-5 text-xl>Node is completely event-driven. Basically the server consists of one thread processing one event after another. A new request coming in is one kind of event. The server starts processing it and when there is a blocking IO operation, it does not wait until it completes and instead registers a callback function.</p>
+      <p className="mb-5 text-xl">Node is completely event-driven. Basically the server consists of one thread processing one event after another. A new request coming in is one kind of event. The server starts processing it and when there is a blocking IO operation, it does not wait until it completes and instead registers a callback function.</p>
     </div>
   </div>
 </div>

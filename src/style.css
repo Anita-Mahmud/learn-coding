@@ -10,13 +10,13 @@
     font-size: 40px
   }
   
-  .dark-mode {
+  .dark {
     color: #fff;
     height: 100%;
     transition: background-color 0.25s ease-in-out;
   }
   
-  .light-mode {
+  .light {
     background-color: #fff;
     height: 100%;
     transition: background-color 0.25s ease-in-out;

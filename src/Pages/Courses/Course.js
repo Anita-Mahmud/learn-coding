@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Pdf from '../PDF/Pdf';
 import Nav from '../shared/Header/Nav';
-import { Page, Text, Document,Image, StyleSheet } from "@react-pdf/renderer";
+import { ArrowDownCircleIcon } from '@heroicons/react/24/solid'
 const Course = () => {
   
     const course = useLoaderData();
@@ -15,9 +15,11 @@ const Course = () => {
           <div className='mx-40'>
          <div className='lg:flex items-center justify-between'>
          <h1 className='text-6xl text-center my-10 font-bold'>Welcome To {name}</h1>
-        
+        {/* pdf download */}
       <button className="btn btn-primary justify-end mb-4" >
-      <PDFDownloadLink document={<Pdf details = {course}/>} fileName="FORM">download</PDFDownloadLink>
+      <PDFDownloadLink document={<Pdf details = {course}/>} fileName="FILE">
+      <div className='flex items-center'><ArrowDownCircleIcon className='w-8' />download</div>
+        </PDFDownloadLink>
         </button>
   
          </div>

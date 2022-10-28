@@ -1,4 +1,4 @@
-import { PDFDownloadLink } from "@react-pdf/renderer";
+
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
@@ -6,6 +6,7 @@ import Check from "../Pages/Courses/Check";
 import Course from "../Pages/Courses/Course";
 import Courses from "../Pages/Courses/Courses";
 import FAQ from "../Pages/FAQ/FAQ";
+import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Pdf from "../Pages/PDF/Pdf";
 import Register from "../Pages/Register/Register";
@@ -19,8 +20,7 @@ export const router = createBrowserRouter([
     children:[
     {
         path: '/',
-        loader:()=> fetch('https://code-server-eosin.vercel.app/courses'),
-        element:<Courses></Courses>,
+        element:<Home></Home>
         
     },
     {

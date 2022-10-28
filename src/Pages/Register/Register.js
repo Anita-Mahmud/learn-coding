@@ -8,6 +8,7 @@ const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    // form start
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -15,7 +16,7 @@ const Register = () => {
         const photoURL = form.url.value;
         const email = form.email.value;
         const password = form.password.value;
-
+        // register
         createUser(email, password)
             .then(result => {
                 const user = result.user;
@@ -30,7 +31,7 @@ const Register = () => {
               setError(error.message);
              
           });
-
+          //  profile
           const handleUserProfile = (displayName,photoURL)=>{
             const profile = {displayName,photoURL}
             updateUserProfile (profile)
@@ -41,7 +42,7 @@ const Register = () => {
     
     return (
         <div>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen ">
 <div className="hero-content flex-col lg:flex-row-reverse">
 <div className="text-center lg:text-left">
   <h1 className="text-5xl font-bold">Register now!</h1>
