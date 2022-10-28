@@ -15,11 +15,20 @@ const Login = () => {
         providerGoogleLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, {replace: true});
             })
             .catch(error => console.error(error))
     }
     // git signin
-    const handleGitSignIn=()=>{}
+    const handleGitSignIn=()=>{
+      providerGitLogin(gitProvider)
+      .then(result => {
+        const user = result.user;
+        navigate(from, {replace: true});
+    })
+    .catch(error => console.error(error))
+
+    }
     //email pass
     const handleSubmit = event => {
         event.preventDefault();

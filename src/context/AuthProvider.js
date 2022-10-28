@@ -1,6 +1,6 @@
 import React, { createContext,useState,useEffect } from 'react';
 import {getAuth,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,
-    onAuthStateChanged,signOut,updateProfile
+    onAuthStateChanged,signOut
 } from 'firebase/auth';
 import { app } from '../firebase/firebase.config';
 export const AuthContext = createContext();
@@ -14,8 +14,9 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider);
     }
     //git login
-    const providerGitLogin = ()=>{
-
+    const providerGitLogin = (provider)=>{
+        setLoading(true);
+        return signInWithPopup(auth, provider);
     }
     //email pass
     const createUser = (email, password) => {
@@ -29,11 +30,8 @@ const AuthProvider = ({children}) => {
     }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-
-            
-                setUser(currentUser);
-            
-            setLoading(false);
+         setUser(currentUser);
+        setLoading(false);
         });
 
         return () => {
@@ -44,9 +42,6 @@ const AuthProvider = ({children}) => {
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
-    }
-    const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile);
     }
     const authVal = { 
         user, 

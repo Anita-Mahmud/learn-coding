@@ -54,11 +54,7 @@ export const router = createBrowserRouter([
     element:<Course></Course>,
     loader: ({params}) => fetch(`https://code-server-eosin.vercel.app/course/${params.id}`)
  } ,
-//  {
-//    path:'/details/:id',
-//    element:<PDFDownloadLink document={<Pdf/>} fileName="FORM"></PDFDownloadLink>,
-//    loader: ({params}) => fetch(`https://code-server-eosin.vercel.app/course/${params.id}`)
-// } ,
+
  
  {
     path:'/course/premium/:id',
