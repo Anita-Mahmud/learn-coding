@@ -1,9 +1,8 @@
 import React from 'react';
-
 const Blog = () => {
     return (
         <div>
-           <div className="hero m-8" style={{ backgroundImage: `url("images/187161.webp")` }}>
+           <div className="hero m-8" style={{ backgroundImage: `url("187161.webp")` }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md text-white">
@@ -12,7 +11,7 @@ const Blog = () => {
     </div>
   </div>
 </div>
-<div className="hero mb-8" style={{ backgroundImage: `url("images/187161.webp")` }}>
+<div className="hero mb-8" style={{ backgroundImage: `url("187161.webp")` }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content  text-neutral-content">
     <div className="max-w-md text-white">
@@ -30,7 +29,7 @@ const Blog = () => {
     </div>
   </div>
 </div>
-<div className="hero mb-8" style={{ backgroundImage: `url("images/187161.webp")` }}>
+<div className="hero mb-8" style={{ backgroundImage: `url("187161.webp")` }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content  text-neutral-content">
     <div className="max-w-md text-white">
@@ -41,7 +40,7 @@ const Blog = () => {
     </div>
   </div>
 </div>
-<div className="hero mb-8" style={{ backgroundImage: `url("images/187161.webp")` }}>
+<div className="hero mb-8" style={{ backgroundImage: `url("187161.webp")` }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content  text-neutral-content">
     <div className="max-w-md text-white">

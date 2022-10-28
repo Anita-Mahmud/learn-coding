@@ -6,7 +6,7 @@ const Sidebar = () => {
     const [categories, setCategories] = useState([]);
 // fetching data
     useEffect( () =>{
-        fetch('http://localhost:5000/courses')
+        fetch('https://code-server-eosin.vercel.app/courses')
         .then( res => res.json())
         .then(data => setCategories(data));
     }, [])

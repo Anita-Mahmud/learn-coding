@@ -1,17 +1,22 @@
-import React,{ useContext } from 'react';
+import React,{ useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
+import logo from '../../../images/logo.jpg';
 
 const Nav = () => {
+ 
   const { user, logOut } = useContext(AuthContext);
   console.log(user)
+ 
   const handleLogOut = () => {
     logOut()
         .then(() => { })
         .catch(error => console.error(error))
 }
     return (
-        <div className="navbar bg-base-100 px-20 py-10">
+
+        <div>
+          <div className="navbar bg-base-100 px-20 py-10">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -20,27 +25,28 @@ const Nav = () => {
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link to='/courses'>Courses</Link></li>
         <li tabIndex={0}>
-          <Link to='/' className="justify-between">
+          <Link to='/faq' className="justify-between">
             FAQ
           </Link>
         </li>
         <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/toggle'>Toggle</Link></li>
+      
       </ul>
     </div>
     <Link to='/' className="btn btn-ghost  normal-case text-xl">
-        <img src='images/logo.jpg' className='w-16 lg:w-20 mr-10'></img><span className='md:visible invisible'>Learn Code</span></Link>
+        <img src={logo} className='w-16 lg:w-20 mr-10'></img><span className='md:visible invisible'>Learn Code</span></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
       <li><Link to='/courses'>Courses</Link></li>
       <li tabIndex={0}>
-      <Link to='/'>FAQ</Link>
+      <Link to='/faq'>FAQ</Link>
       </li>
       <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/toggle'>Toggle</Link></li>
-
+     
+        
     </ul>
+
   </div>
   <div className="navbar-end">
    {user?.uid?
@@ -55,6 +61,7 @@ const Nav = () => {
   }
   </div>
 </div>
+        </div>
     );
 };
 
